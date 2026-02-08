@@ -1,0 +1,29 @@
+/* Video Grid */
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Video Card */
+.video-card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+/* Video Title */
+.video-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Video Player */
+.video-player {
+  width: 100%;
+  border-radius: 6px;
+}
