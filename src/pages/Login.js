@@ -33,6 +33,7 @@ function Login() {
     try {
       const res = await api.post("/react/auth/login", { email, password });
       login(res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/dashboard");
     } catch (err) {
       setError("Invalid credentials");

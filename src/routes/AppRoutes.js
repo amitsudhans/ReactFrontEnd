@@ -7,6 +7,8 @@ import ViewProduct from "../pages/ViewProduct";
 import VideoList from "../pages/VideoList";
 import VideoPlayer from "../pages/VideoPlayer";
 import Upload from "../pages/Upload";
+import Chat from "../pages/Chat";
+import Import from "../pages/Import";
 
 function AppRoutes() {
   return (
@@ -30,6 +32,9 @@ function AppRoutes() {
       <Route path="/videos" element={<VideoList />} />
       <Route path="/upload" element={<Upload />} />
       <Route path="/videos/:id" element={<VideoPlayer />} />
+      <Route path="/chat" element={<Chat />} />
+      <Route path="/import" element={<Import/>} />
+    
     </Routes>
   );
 }
