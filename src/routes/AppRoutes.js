@@ -9,32 +9,38 @@ import VideoPlayer from "../pages/VideoPlayer";
 import Upload from "../pages/Upload";
 import Chat from "../pages/Chat";
 import Import from "../pages/Import";
+import { useAuth } from "../hook/useAuth";
+import UploadCSV from "../pages/UploadCSV";
 
 function AppRoutes() {
-  return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
 
+    const { token } = useAuth();
+  return (
+      <Routes>
+      {/* PUBLIC ROUTES */}
       <Route
-        path="/dashboard"
-        element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        }
+        path="/login"
+        element={token ? <Navigate to="/dashboard" /> : <Login />}
+      />
+      <Route
+        path="/register"
+        element={token ? <Navigate to="/dashboard" /> : <Register />}
       />
 
-       <Route path="/product/:id" element={<ViewProduct />} />
-      <Route path="/" element={<Navigate to="/login" />} />
-      <Route path="*" element={<Navigate to="/login" />} />
+      {/* PRIVATE ROUTES */}
+      <Route element={<PrivateRoute />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/product/:id" element={<ViewProduct />} />
+        <Route path="/videos" element={<VideoList />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/videos/:id" element={<VideoPlayer />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/import" element={<Import />} />
+        <Route path="/importcsv" element={<UploadCSV />} />
+      </Route>
 
-      <Route path="/videos" element={<VideoList />} />
-      <Route path="/upload" element={<Upload />} />
-      <Route path="/videos/:id" element={<VideoPlayer />} />
-      <Route path="/chat" element={<Chat />} />
-      <Route path="/import" element={<Import/>} />
-    
+      {/* FALLBACK */}
+      <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   );
 }
