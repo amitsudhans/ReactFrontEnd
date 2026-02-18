@@ -11,6 +11,7 @@ import Chat from "../pages/Chat";
 import Import from "../pages/Import";
 import { useAuth } from "../hook/useAuth";
 import UploadCSV from "../pages/UploadCSV";
+import UploadHD from "../pages/UploadHD";
 
 function AppRoutes() {
 
@@ -37,6 +38,7 @@ function AppRoutes() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/import" element={<Import />} />
         <Route path="/importcsv" element={<UploadCSV />} />
+         <Route path="/uploadhd" element={<UploadHD />} />
       </Route>
 
       {/* FALLBACK */}

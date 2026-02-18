@@ -36,6 +36,7 @@ const Header = () => {
   <Link to="/chat">Chat</Link> |{" "}
    <Link to="/import">Upload big files</Link> |{" "}
    <Link to="/importcsv">Import CSV</Link> |{" "}
+  <Link to="/uploadhd">Upload HD</Link> |{" "}
   <button onClick={handleLogout} style={{ background: "none", border: "none", color: "blue", cursor: "pointer" }}>
     Logout
   </button>
